@@ -28,7 +28,7 @@ use App\Http\Controllers\SalesTaxController;
 Route::post('/register', [RegisterController::class, 'register']);
 Route::post('/login', [RegisterController::class, 'login']);
 
-Route::middleware(['auth:api', 'user'])->group(function () {
+Route::middleware(['auth:api'])->group(function () {
     Route::post('/sales-tax', [SalesTaxController::class, 'store']);
     Route::get('/user-info', [ProfileController::class, 'show']);
     Route::post('/password-update', [ProfileController::class, 'password_update']);
