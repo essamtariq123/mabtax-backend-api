@@ -13,7 +13,7 @@ class PersonalNtnController extends Controller
     public function store(Request $request)
     {
 
-        $user = auth()->user();
+        $user = auth()->user;
 
         $status = Status::where('slug', 'new')->first();
 
