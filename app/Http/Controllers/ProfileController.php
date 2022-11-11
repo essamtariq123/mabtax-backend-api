@@ -14,14 +14,14 @@ class ProfileController extends Controller
 
         return response([
             'status' => 200,
-            'user' => User::find(1)
+            'user' => auth()->user()
         ]);
     }
 
     public function password_update(PasswordUpdateRequest $request)
     {
 
-        $user = User::find(1);
+        $user = auth()->user();
 
         if (Hash::check($request->old, $user->password)) {
             $user->fill([
@@ -44,7 +44,7 @@ class ProfileController extends Controller
 
     public function personal_info(Request $request)
     {
-        $user = User::find(1);
+        $user = auth()->user();
 
         $user->update([
             'name' => $request->name

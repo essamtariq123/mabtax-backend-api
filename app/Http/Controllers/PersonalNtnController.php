@@ -12,7 +12,7 @@ class PersonalNtnController extends Controller
     public function store(Request $request)
     {
 
-        $user = User::find(1);
+        $user = auth()->user();
 
         $personal = PersonalNtn::create([
             'user_id' => $user->id
