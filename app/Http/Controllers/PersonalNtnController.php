@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\PersonalNtn;
 use App\Models\User;
+use App\Models\Status;
+use App\Models\PersonalNtn;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -14,8 +15,11 @@ class PersonalNtnController extends Controller
 
         $user = auth()->user();
 
+        $status = Status::where('slug', 'new')->first();
+
         $personal = PersonalNtn::create([
-            'user_id' => $user->id
+            'user_id' => $user->id,
+            'status_id' => $status->id
         ]);
 
 

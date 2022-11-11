@@ -12,6 +12,7 @@ class PersonalNtn extends Model implements HasMedia
     use HasFactory, InteractsWithMedia;
 
     protected $fillable = [
-        'user_id'
+        'user_id',
+        'status_id'
     ];
 }
